@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SvrMap.Server", "SvrMap.Server\SvrMap.Server.csproj", "{FF453DA9-A197-4C7E-A347-C52454CA52C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SvrMap.Client", "SvrMap.Client\SvrMap.Client.csproj", "{2FA41A38-EF31-41E4-B337-D1174CA60513}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SvrMap.Shared", "SvrMap.Shared\SvrMap.Shared.csproj", "{AF1A72D6-5EB3-4E13-811E-50934C205D31}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FF453DA9-A197-4C7E-A347-C52454CA52C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF453DA9-A197-4C7E-A347-C52454CA52C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF453DA9-A197-4C7E-A347-C52454CA52C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF453DA9-A197-4C7E-A347-C52454CA52C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FA41A38-EF31-41E4-B337-D1174CA60513}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FA41A38-EF31-41E4-B337-D1174CA60513}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FA41A38-EF31-41E4-B337-D1174CA60513}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FA41A38-EF31-41E4-B337-D1174CA60513}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF1A72D6-5EB3-4E13-811E-50934C205D31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF1A72D6-5EB3-4E13-811E-50934C205D31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF1A72D6-5EB3-4E13-811E-50934C205D31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF1A72D6-5EB3-4E13-811E-50934C205D31}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
