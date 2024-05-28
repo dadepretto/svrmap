@@ -31,7 +31,7 @@ public readonly struct Response(bool found, int portNumber)
         EnsureBufferSize(buffer);
 
         CodePage.GetBytes(Found ? "+" : "-", buffer[..1]);
-        BinaryPrimitives.WriteInt32LittleEndian(buffer[1..], PortNumber);
+        BinaryPrimitives.WriteInt32BigEndian(buffer[1..], PortNumber);
     }
 
     public static Response ReadFrom(Span<byte> buffer)
@@ -44,7 +44,7 @@ public readonly struct Response(bool found, int portNumber)
             '-' => false,
             var value => throw new Exception($"Invalid response character {value} at position 0")
         };
-        var portNumber = BinaryPrimitives.ReadInt32LittleEndian(buffer[1..]);
+        var portNumber = BinaryPrimitives.ReadInt32BigEndian(buffer[1..]);
 
         return new Response(found, portNumber);
     }

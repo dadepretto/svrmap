@@ -1,4 +1,5 @@
 ﻿using System.Buffers;
+using System.Net;
 using System.Net.Sockets;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -17,6 +18,7 @@ public sealed partial class Server(ILogger<Server> logger, IOptions<ServerSettin
         try
         {
             tcpListener.Start();
+            LogStarted(logger, options.Value.IpAddress, options.Value.Port);
             
             while (!cancellationToken.IsCancellationRequested)
             {
@@ -43,8 +45,8 @@ public sealed partial class Server(ILogger<Server> logger, IOptions<ServerSettin
             var request = Request.ReadFrom(buffer.AsSpan(0, bytesRead));
 
             var found = options.Value.Services.TryGetValue(request.ServiceName, out var portNumber);
-            if (found) LogNotFound(logger, request.ServiceName);
-            else LogFound(logger, request.ServiceName, portNumber);
+            if (found) LogFound(logger, request.ServiceName, portNumber);
+            else LogNotFound(logger, request.ServiceName);
 
             var response = new Response(found, portNumber);
             response.WriteTo(buffer);
@@ -61,8 +63,8 @@ public sealed partial class Server(ILogger<Server> logger, IOptions<ServerSettin
         }
     }
 
-    [LoggerMessage(LogLevel.Information, "Listening on port {PortNumber}")]
-    private static partial void LogStarted(ILogger logger, int portNumber);
+    [LoggerMessage(LogLevel.Information, "Listening on address {ipAddress}, port {PortNumber}")]
+    private static partial void LogStarted(ILogger logger, IPAddress ipAddress, int portNumber);
 
     [LoggerMessage(LogLevel.Debug, "Requested service '{ServiceName}' found with port {PortNumber}")]
     private static partial void LogFound(ILogger logger, string serviceName, int portNumber);
